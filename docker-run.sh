@@ -2,7 +2,7 @@
 
 docker run -d --name="ownCloud" \
 -p 8443:443 \
--e TZ="America/Chicago" \
+-e TZ="Europe/Amsterdam" \
 -e PUID="99" \
 -e PGID="100" \
 -e PHP_VERS="7.4" \
@@ -10,4 +10,4 @@ docker run -d --name="ownCloud" \
 -v "/mnt/cache/appdata/ownCloud":"/config":rw \
 -v "/mnt/cache/appdata/ownCloud/data":"/data":rw \
 --privileged \
-dlandon/owncloud
+genie137/owncloud

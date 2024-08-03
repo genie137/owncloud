@@ -1,6 +1,6 @@
 FROM phusion/baseimage:focal-1.2.0
 
-LABEL maintainer="dlandon"
+LABEL maintainer="genie137"
 
 ENV DEBIAN_FRONTEND="noninteractive" \
 	DISABLE_SSH="true" \
@@ -13,7 +13,7 @@ ENV	DATADIR="$MYSQL_DIR/database" \
 	PHP_VERS_2="7.2" \
 	PHP_VERS_3="7.3" \
 	PHP_VERS="7.4" \
-	MARIADB_VERS="10.4"
+	MARIADB_VERS="10.4" 
 
 COPY services/ /etc/service/
 COPY defaults/ /defaults/
@@ -29,7 +29,7 @@ RUN	apt-get install apt-transport-https curl && \
 
 RUN	useradd -u 911 -U -d /config -s /bin/false abc && \
 	usermod -G users abc && \
-	apt-get -y install nginx mariadb-server mysqltuner libmysqlclient21 libpcre3-dev && \
+	apt-get -y install nginx mwariadb-server mysqltuner libmysqlclient21 libpcre3-dev && \
 	apt-get -y install php$PHP_VERS apache2- apache2-bin- php$PHP_VERS-fpm php$PHP_VERS-cli php$PHP_VERS-common php$PHP_VERS-apcu && \
 	apt-get -y install php$PHP_VERS-bz2 php$PHP_VERS-mysql php$PHP_VERS-curl && \
 	apt-get -y install php$PHP_VERS-gd php$PHP_VERS-gmp php$PHP_VERS-imap php$PHP_VERS-intl php$PHP_VERS-ldap && \
@@ -63,6 +63,7 @@ RUN	cd / && \
 	echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /defaults/nginx-fpm.conf
 
 EXPOSE 443
+EXPOSE 80
 
 VOLUME /config /data
 
