@@ -29,7 +29,7 @@ RUN	apt-get install apt-transport-https curl && \
 
 RUN	useradd -u 911 -U -d /config -s /bin/false abc && \
 	usermod -G users abc && \
-	apt-get -y install nginx mwariadb-server mysqltuner libmysqlclient21 libpcre3-dev && \
+	apt-get -y install nginx mariadb-server mysqltuner libmysqlclient21 libpcre3-dev && \
 	apt-get -y install php$PHP_VERS apache2- apache2-bin- php$PHP_VERS-fpm php$PHP_VERS-cli php$PHP_VERS-common php$PHP_VERS-apcu && \
 	apt-get -y install php$PHP_VERS-bz2 php$PHP_VERS-mysql php$PHP_VERS-curl && \
 	apt-get -y install php$PHP_VERS-gd php$PHP_VERS-gmp php$PHP_VERS-imap php$PHP_VERS-intl php$PHP_VERS-ldap && \
